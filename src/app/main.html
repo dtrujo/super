@@ -1,0 +1,33 @@
+<ion-menu id='mainMenu' [content]="content">
+  
+  <ion-header no-border class='main-header'>
+
+    <div class='profile'>
+      <img src="assets/img/user.png" />
+      <h4>{{name}}</h4>
+    </div>
+    
+  </ion-header>
+
+  <ion-content>
+    <ion-list class='cxu-list'>
+      <button class='button-list' menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <div class='logout'>
+          <button (click) = logout()>
+            <ion-icon name="exit"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

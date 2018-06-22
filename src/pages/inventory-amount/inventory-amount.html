@@ -1,0 +1,59 @@
+<ion-header no-border>
+
+    <ion-navbar>
+      <ion-title>Article</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+
+    <div class="article-header">
+      <h2>{{article.article_code}}</h2>
+      <h5>{{article.article_name}}</h5>
+    </div>
+  
+    <div class="main-container">
+  
+      <div class='ubication'>
+        <ion-label stacked>Ubication</ion-label>
+        <h2>{{warehouse.ubication}}</h2>
+      </div>
+
+      <form [formGroup]="articleForm" (ngSubmit)="addArticle()">
+      
+          <ion-item class="input-ubication">
+            <ion-label stacked>Uds</ion-label>
+            <ion-input
+              type="text" name="old_units" disabled="true" 
+              formControlName="old_units" value="{{warehouse.units}}">
+            </ion-input>
+          </ion-item>
+  
+          <div class='dotted'>:</div>
+
+          <ion-item>           
+            <ion-label stacked>Confirm</ion-label>
+            <ion-input #input
+              type="text" name="new_units" [disabled]="inventory.isSent"
+              formControlName="new_units" value="{{article.new_units}}"></ion-input>
+          </ion-item>
+  
+          <div>
+            <button 
+              ion-button type="submit" color="light" 
+              block round outline [disabled]="!articleForm.valid || inventory.isSent">Add</button>
+          </div>
+  
+      </form>
+  
+      <div class="error-login" *ngIf="error">
+          <img src="assets/img/face.png"/>
+          <p>Unknown article</p>
+      </div>
+    </div>
+  
+  </ion-content>
+  
+  
+  

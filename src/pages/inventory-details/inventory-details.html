@@ -1,0 +1,72 @@
+<ion-header no-border>
+
+    <ion-navbar>
+      <ion-title>Inventory</ion-title>
+
+      <ion-buttons end>
+        <button ion-button icon-only (click)='uploadInventory()' [disabled]="inventory.isSent">
+          <ion-icon name="cloud-upload"></ion-icon>
+        </button>
+      </ion-buttons>
+
+    </ion-navbar>
+  
+    <div class="inventory-header">
+  
+      <div class="inventory-detail">
+        <h2>{{inventory.id}}</h2>
+        <h5>{{inventory.dateCreated}}</h5>
+      </div>
+  
+    </div>
+
+  </ion-header>
+  
+  <ion-content>
+
+    <div class='container-empty' *ngIf="inventory.locations.length<1">
+  
+      <div class='empty-locations'>
+        <img src="assets/img/ubication-white.png" />
+        <ion-label>Not Locations</ion-label>
+      </div>
+    
+    </div>
+
+    <ion-list>
+
+      <ion-item-sliding 
+        *ngFor="let location of inventory.locations" 
+        (click)='locationsDetails(location)'>
+  
+        <ion-item>
+  
+          <div class='left-info'>
+            <h4>{{location.code}}</h4>
+            <!--<p>{{article.article_name}}</p> -->
+          </div> 
+    
+          <div class='right-info'>
+            <h5>{{location.count}} articles</h5>
+            <!--<p>{{article.ubication}}</p>-->
+          </div>
+          
+        </ion-item>
+  
+        <ion-item-options side="right" *ngIf="!inventory.isSent">
+          <button 
+            class='sliding-button' ion-button color="danger" 
+            [disabled]="inventory.isSent" (click)='removeLocation(location, $event)'>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+  
+      </ion-item-sliding>
+    
+    </ion-list>
+
+    <ion-fab right bottom (click)=goToAddLocation() [ngStyle]="{'visibility': !inventory.isSent ? 'visible':'hidden'}">
+      <button ion-fab><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+  
+  </ion-content>

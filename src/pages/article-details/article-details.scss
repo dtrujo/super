@@ -1,0 +1,198 @@
+page-article-details {
+    .unlock{
+        opacity: 1;
+    }
+    .lock{
+        opacity: .5;
+    }
+    ion-label{
+        margin: 23px 10px !important;
+    }
+    ion-header{
+        background: transparent;
+        .toolbar{
+            button{
+                color:white;
+            }
+            .toolbar-title{
+                color:white;
+            }
+            .toolbar-background{
+                background-color: #00A1E2;
+            }
+        }
+    }
+    ion-content{
+        .list-prices{
+            border-top: 1px solid #efefef;           
+        }
+        .article-header{
+            background-color: #00A1E2;
+            padding: 2em 2em 3em 2em;
+            color:white;
+            h2{
+                margin-top:0;
+                font-weight: 900;
+                margin-bottom:0.2em;
+            }
+            h5{
+                margin-top:0;
+                margin-bottom:0;
+                font-weight: 400;
+            } 
+        }
+        .article-detail {
+            padding-top: 2em;
+            h5{
+                margin:0;
+                font-weight: 100;
+            } 
+        }
+        .article-prices{
+            padding: 1.5em 2em 0em 2em;
+            img{
+                float: left;
+                width: 25px;
+                margin-top: 10px;
+                margin-left: 7px;
+                margin-right: 15px;
+            }
+            h4{
+                font-size: 1.6em;
+                font-weight: 500;
+                margin-top: 0.5em;
+                margin-bottom: 1.2em;
+            } 
+            p{
+                margin:0em 0em 0.5em 0em;
+            }
+            span {
+                font-weight: 500;
+                float: left;
+                width: 4.5em;
+            }
+            .item-prices{
+                padding: 0;
+                .item-inner{
+                    padding: 0 !important;
+                    border-bottom: 1px solid #efefef !important; 
+                }
+                .type{
+                    float: left;
+                    width: 35%;
+                    .type-code{
+                        font-weight: 900;
+                        font-size: 1.3em;
+                    }
+                    .type-type{
+                        color: gray;
+                        font-size: .9em;
+                        font-weight: 100;
+                    }
+                }
+                .tax{
+                    float: left;
+                    .tax-code{
+                        font-size: 1.3em;
+                        font-weight: 300;
+                    }
+                    .tax-type{
+                        color: gray;
+                        font-size: .9em;
+                        font-weight: 100;
+                    }
+                }
+                .price{
+                    float: right;
+                    .price-price{
+                        font-size: 1.3em;
+                        font-weight: 300;
+                        text-align: right;
+                    }
+                    .price-dto{
+                        color: gray;
+                        font-size: .9em;
+                        font-weight: 100;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+        .article-warehouse{
+            padding: .5em 2em 2em 2em;
+            img{
+                float: left;
+                width: 23px;
+                margin-top: 12px;
+                margin-left: 7px;
+                margin-right: 15px;
+            }
+            h4{
+                font-size: 1.6em;
+                font-weight: 500;
+                margin-top: 0.5em;
+                margin-bottom: 1.3em;
+            } 
+            ion-card{
+                border: 1px solid #dcdcdc;
+                margin: 1em 0;
+                border-radius: 2px;
+                width: 100%;
+                font-size: 1.4rem;
+                background: #fff;
+                box-shadow: none;
+
+                ion-card-header{
+                    font-size: 1em;
+                    color: #222;
+                    padding: 10px;
+                }
+                .warehouse{
+                    float: left;
+                    .warehouse-code{
+                        font-size: 1.6em;
+                        font-weight: 900;
+                    }
+                    .warehouse-name{
+                        color: gray;
+                        margin-top:2px;
+                        font-size: 1.1em;
+                        font-weight: 100
+                    }
+                    .warehouse-ubications{
+                        margin-top:10px;
+                        font-size:1.2em;
+                        font-weight: 100;
+                    }
+                }
+                .uds{
+                    float: right;
+                    .uds-value{
+                        font-size: 1.5em;
+                        font-weight: 100;
+                        span{
+                            font-size: .9em
+                        }
+                    }
+                    .uds-name{
+                        font-size: .8em;
+                        font-weight: 100;
+                    }
+                    .uds-ubications{
+                        margin-top:20px;
+                        font-size:.8em;
+                        font-weight: 100;
+                    }
+                    .uds-lock{
+                        text-align: right;
+                        margin-top: 0.2em;
+                        ion-icon{
+                            font-size: 1.5em;
+                            color: gainsboro;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

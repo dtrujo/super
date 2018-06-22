@@ -1,39 +1,41 @@
-<ion-header>
+<ion-header no-border>
 
   <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="configuration()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <form (submit)="doLogin()">
-    <ion-list>
+  <div class="main-container">
+    <form (submit)="doLogin()">
+      <ion-img width="70%" height="70px" src="assets/img/logotipo.png"></ion-img>
+      <ion-list>
+  
+        <ion-item>
+          <ion-label fixed>{{ 'USERNAME' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
 
-      <!--
-      Want to use a Username instead of an Email? Here you go:
+        <div padding>
+          <button ion-button color="dark" block round outline>{{ 'LOGIN_BUTTON' | translate }}</button>
+        </div>
 
-      <ion-item>
-        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
-
-      <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
-
-      <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
-      </div>
-
-    </ion-list>
-  </form>
+      </ion-list>
+    </form>
+    <div class="error-login" *ngIf="error">
+      <img src="assets/img/face.png"/>
+      <p>Unknown user</p>
+    </div>
+  </div>
 </ion-content>

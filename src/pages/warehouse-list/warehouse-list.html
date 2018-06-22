@@ -1,0 +1,35 @@
+
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Warehouses</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+
+        <ion-card *ngFor="let warehouse of warehouses" class='{{warehouse.icon}}' (click)="presentActionSheet(warehouse)">
+         
+          <ion-card-header>
+
+            <div class='warehouse'>
+              <div class='warehouse-code'>{{ warehouse.code }}</div>
+              <div class='warehouse-name'>{{ warehouse.name }}</div>
+            </div>
+
+            <ion-buttons end>
+              <button color="transparent" class='button-options' ion-button icon-only>
+                <ion-icon name="more"></ion-icon>
+              </button> 
+            </ion-buttons>
+       
+          </ion-card-header>
+
+        </ion-card>
+
+      </ion-list>
+
+</ion-content>

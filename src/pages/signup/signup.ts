@@ -35,7 +35,7 @@ export class SignupPage {
 
   doSignup() {
     // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp) => {
+    /*this.user.signup(this.account).subscribe((resp) => {
       this.navCtrl.push(MainPage);
     }, (err) => {
 
@@ -48,6 +48,6 @@ export class SignupPage {
         position: 'top'
       });
       toast.present();
-    });
+    });*/
   }
 }

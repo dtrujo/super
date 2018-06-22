@@ -1,0 +1,66 @@
+<ion-header no-border>
+
+    <ion-navbar #Navbar>
+      <ion-title>Location</ion-title>
+
+    </ion-navbar>
+  
+    <div class="inventory-header">
+  
+      <div class="inventory-detail">  
+        <h2>{{location.code}}</h2>
+        <h5>{{inventory.code}}</h5>
+      </div>
+  
+    </div>
+
+  </ion-header>
+  
+  <ion-content>
+
+    <div class='container-empty' *ngIf="location.articles.length<1">
+  
+      <div class='empty-article'>
+        <img src="assets/img/ubication-white.png" />
+        <ion-label>Not Article</ion-label>
+      </div>
+    
+    </div>
+
+    <ion-list>
+
+      <ion-item-sliding 
+        *ngFor="let article of location.articles" 
+        (click)='articleInventoryAmount( article )'>
+  
+        <ion-item>
+  
+          <div class='left-info'>
+            <h4 [ngStyle]="{'color': (article.new_units!=article.old_units) ? 'red':'black'}">{{article.article_code}}</h4>
+            <p>{{article.article_name}}</p> 
+          </div> 
+    
+          <div class='right-info'>
+            <h5>{{article.new_units}} uds</h5>
+            <p>{{article.ubication}}</p>
+          </div>
+          
+        </ion-item>
+  
+        <ion-item-options side="right" *ngIf="!inventory.isSent">
+          <button 
+            class='sliding-button' ion-button color="danger" 
+            [disabled]="inventory.isSent" (click)='removeArticle(article, $event)'>
+              <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+  
+      </ion-item-sliding>
+    
+    </ion-list>
+
+    <ion-fab right bottom (click)=goToAddArticle() [ngStyle]="{'visibility': !inventory.isSent ? 'visible':'hidden'}">
+      <button ion-fab><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+  
+  </ion-content>

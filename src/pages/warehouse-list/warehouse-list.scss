@@ -1,0 +1,27 @@
+page-warehouse-list {
+    ion-content{
+        @include backgroundShorthand($image-path + "/background.png", auto);
+        background-position: 40px bottom;
+    }
+    .button-options{
+        box-shadow: none !important;
+        border: none;
+    }
+    ion-card{
+        background: #8CC152;
+        margin: 0.3em 1em;
+    }
+    .warehouse{
+        float: left;
+        margin-left: 0.2em;
+        color: white;
+        .warehouse-code{
+            font-size: 1.6em;
+            font-weight: 900;
+        }
+        .warehouse-name{
+            font-size: 1.1em;
+            font-weight: 100
+        }
+    }
+}

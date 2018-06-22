@@ -1,0 +1,21 @@
+page-article-list {
+    h4{
+        margin-top:0.3em !important;
+        font-size: 1.3em !important;
+        font-weight: 900 !important;
+    }
+    p{
+        font-size: 1em !important;
+        font-weight: 100;
+    }
+    .item{
+        padding-left: 0px;
+        .item-inner{
+            padding: 0 !important;
+            border-bottom: 1px solid #efefef !important; 
+        }
+    }
+    .scroll-content{
+        margin: 10px;
+    }
+}

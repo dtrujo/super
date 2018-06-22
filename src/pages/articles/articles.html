@@ -1,0 +1,43 @@
+
+<ion-header no-border>
+
+    <ion-navbar>
+      
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+  
+      <ion-grid>
+        
+        <ion-row>
+          <h4>Artículos</h4>
+        </ion-row>
+  
+        <ion-row>
+  
+          <ion-col col-6>
+            <button class="button-article" (click)='goToArticles()'>
+              <ion-img width="60%" height="40px" src="assets/img/box-white.png"></ion-img>
+              <ion-label>Artículos</ion-label>
+            </button>
+          </ion-col>
+  
+          <ion-col col-6>
+            <button class="button-warehouse" (click)='goToWarehouses()'>
+              <ion-img width="50%" height="40px" src="assets/img/warehouse-white.png"></ion-img>
+              <ion-label>Almacenes</ion-label>
+            </button>
+          </ion-col>
+  
+        </ion-row>
+  
+      </ion-grid>
+  
+  </ion-content>
+  

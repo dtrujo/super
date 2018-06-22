@@ -1,0 +1,22 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Articles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+      <ion-item *ngFor="let article of articles" (click)='articleDetails(article)'>
+        <h4>{{article.code}}</h4>
+        <p>{{article.name}}</p>    
+      </ion-item>
+    </ion-list>
+ 
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

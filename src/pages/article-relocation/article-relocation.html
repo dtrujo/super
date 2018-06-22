@@ -1,0 +1,79 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Relocation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="main-container">
+
+    <ion-img width="28%" height="90px" src="assets/img/ubication-white.png"></ion-img>
+    <form [formGroup]="articleForm" (ngSubmit)="reLocateArticle()">
+    
+        <ion-item class="input-ubication">
+          <ion-label stacked>Current</ion-label>
+          <ion-input type="text" name="old_location" disabled="true" formControlName="old_location" value="{{warehouse.ubication}}"></ion-input>
+        </ion-item>
+
+        <ion-item>           
+          <ion-label stacked>New</ion-label>
+          <ion-input type="text" name="code" formControlName="new_location"></ion-input>
+        </ion-item>
+
+        <div>
+          <button ion-button type="submit" color="light" block round outline [disabled]="!articleForm.valid">Relocation</button>
+        </div>
+
+    </form>
+
+    <div class="error-login" *ngIf="error">
+        <img src="assets/img/face.png"/>
+        <p>Unknown article</p>
+    </div>
+  </div>
+
+</ion-content>
+
+<!--<ion-content>
+
+  <div class="article-header">
+    <h2>{{article.article_code}}</h2>
+    <h5>{{article.article_name}}</h5>
+
+    <div class="article-detail-header">
+        <h5>{{article.brand_name}}</h5>
+        <h5>{{article.family_name}}</h5>
+    </div>
+
+  </div>
+  
+  <div class="article-detail">
+    
+    <img src="assets/img/warehouse.png" />
+    <h4>Almacén</h4>
+
+    <div><span>Código:</span> <p>{{warehouse.code}}</p></div>
+    <p><span>Nombre:</span> {{warehouse.name}}</p>
+    <p><span>Ubicación:</span> {{warehouse.ubication}}</p>
+  </div>
+
+  <form [formGroup]="articleForm" (ngSubmit)="reLocateArticle()">
+    <ion-item>
+      <ion-label floating>New Location</ion-label>
+      <ion-input type="text" formControlName="location"></ion-input>
+    </ion-item>
+
+    <div>
+      <button ion-button type="submit" color="dark" block round outline [disabled]="!articleForm.valid">Relocation</button>
+    </div>
+
+  </form>
+
+  <p>{{success}}</p>
+
+</ion-content>-->
+
+

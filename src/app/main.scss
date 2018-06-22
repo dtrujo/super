@@ -1,0 +1,45 @@
+page-main {
+    .cxu-list{
+        margin-top:1em;
+    }
+    .main-header{
+        padding: 10px 25px 15px 25px;
+        border-bottom: 1px solid #e8e8e8;
+        img{
+            width: 10%; 
+            float: left; 
+            margin-right: 15px;
+        }
+        h4{
+            padding: 1px;
+        }
+    }
+    .button-list{
+        padding-left: 25px;
+        .item-inner{
+            border:none !important;
+        }
+    }
+    .footer::before{
+        border-top: 1px solid #e8e8e8;
+        background: none;
+    }
+    ion-footer{
+        padding:1.2em;
+        .logout{
+            ion-icon{
+                font-size: 1.5em;
+                float:left;
+                margin-top: 10px;
+                margin-right: .8em;
+            }
+            ion-label{
+                font-size: 1.2em;
+            }
+            button{
+                margin:0;
+                background: none;
+            }
+        }
+    }
+}

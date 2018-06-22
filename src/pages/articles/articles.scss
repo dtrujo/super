@@ -1,0 +1,15 @@
+page-articles {
+    ion-content{
+        @include backgroundShorthand($image-path + "/background.png", auto);
+        background-position: 40px bottom;
+    }
+    .scroll-content{
+        margin-top:4em !important; 
+    }
+    .header::after{
+        background: none;
+        border-bottom: 1px solid #e8e8e8;
+        bottom: 0;
+        height: 0;
+    }
+}

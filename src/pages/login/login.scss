@@ -1,2 +1,42 @@
 page-login {
+    .scroll-content{
+        padding: 0 !important;
+    }
+    .main-container{
+        margin: 8em 2em 0em 2em;
+    }
+    .button{
+        padding: 1.8em 1em; 
+        margin-top: 2em;
+        border-width: 2px;
+        border-radius: 10px;
+    }
+    ion-item{
+        .item-inner{
+            margin-right: 15px;
+        }
+    }
+    .list-md .item-block .item-inner{
+        border-bottom: 1px solid #000000;   
+    }
+    ion-img{       
+        margin: 0 13%;        
+        background: transparent;
+        margin: auto;
+        display: block;
+    }
+    .list-ios > .item-block:first-child {
+        border-top: 0;
+    }
+    .error-login{
+        margin-top: 3em;
+        opacity: .3;
+        text-align: center;
+        p{
+            text-align: center
+        }
+        img{
+            height: 60px
+        }
+    }
 }

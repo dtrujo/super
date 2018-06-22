@@ -1,0 +1,41 @@
+<ion-header no-border>
+
+    <ion-navbar>
+  
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  
+      <ion-title>Location</ion-title>
+  
+      <ion-buttons end>
+        <button ion-button icon-only (click)="scan()">
+          <ion-icon name="qr-scanner"></ion-icon>
+        </button>
+      </ion-buttons>
+  
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+    <div class="main-container">
+      <ion-img width="25%" height="90px" src="assets/img/ubication-white.png"></ion-img>
+      <form (submit)="load()">
+      
+        <ion-list>
+  
+          <ion-item>
+            <ion-label floating>Location</ion-label>
+            <ion-input type="text" name="code" [(ngModel)]="location.code"></ion-input>
+          </ion-item>
+  
+          <div padding>
+            <button ion-button color="light" block round outline>Load</button>
+          </div>
+  
+        </ion-list> 
+      </form>
+    </div>
+  </ion-content>
+  

@@ -1,0 +1,64 @@
+
+<ion-header no-border>
+
+  <ion-navbar>
+
+    <ion-title>Inventories</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  
+  <div class='container-empty' *ngIf="inventories.length<1">
+    
+    <div class='empty-article'>
+      <img src="assets/img/box-white.png" />
+      <ion-label>Not inventory</ion-label>
+    </div>
+
+  </div>
+
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let inventory of inventories" (click)='inventoryDetails(inventory)'>
+
+      <ion-item>
+
+        <div class='left-info'>
+          <h4>{{inventory.id}}</h4>
+          <p>
+            {{inventory.dateCreated}}  
+            <ion-icon class='icon-upload' name="cloud-upload" [ngStyle]="{'visibility': inventory.isSent ? 'visible':'hidden'}"></ion-icon>
+          </p> 
+        </div> 
+  
+        <div class='right-info'>
+          <h5 [ngStyle]="{'color': (inventory.incidence!=0) ? 'red':'black'}">{{inventory.count}}</h5>
+          <p>articles</p>
+        </div>
+        
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button class='sliding-button' ion-button color="danger" (click)='removeInventory(inventory, $event)'>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-fab right bottom (click)='createInventory()'>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

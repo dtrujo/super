@@ -1,0 +1,48 @@
+<ion-header no-border>
+
+    <ion-navbar>
+  
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  
+      <ion-title>Articles</ion-title>
+  
+      <ion-buttons end>
+        <button ion-button icon-only (click)="showList()">
+          <ion-icon name="list"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="scan()">
+          <ion-icon name="qr-scanner"></ion-icon>
+        </button>
+      </ion-buttons>
+  
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+    <div class="main-container">
+      <ion-img width="25%" height="90px" src="assets/img/box-white.png"></ion-img>
+      <form (submit)="doSearch()">
+      
+        <ion-list>
+  
+          <ion-item>
+            <ion-label floating>Código</ion-label>
+            <ion-input type="text" name="code" [(ngModel)]="article.code"></ion-input>
+          </ion-item>
+  
+          <div padding>
+            <button ion-button color="light" block round outline>Search</button>
+          </div>
+  
+        </ion-list> 
+      </form>
+      <div class="error-login" *ngIf="error">
+          <img src="assets/img/face.png"/>
+          <p>Unknown article</p>
+        </div>
+    </div>
+  </ion-content>
+  

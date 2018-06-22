@@ -1,0 +1,65 @@
+page-dashboard {
+    ion-footer{
+        padding: 1.5em;
+    }
+    .footer::before{
+        border: none;
+    }
+    .scroll-content{
+        padding: 1em 1.5em;
+    }
+    .toolbar-background{
+        background: white;
+    }
+    .dashboard-header{
+        h2{
+            margin: 0 0 .25em 0;
+            font-weight: 900;
+        }
+        h4{
+            margin:0 0 1em 0;
+            font-weight: 100;
+        }
+    }
+    .dashboard-total{
+        float: right;
+        width: 100%;
+        hr{
+            border-top:1px solid #e8e8e8;
+            margin-bottom: 1.2em;
+            margin-top: .8em;
+        }
+        h4{
+            margin:0;
+            font-size: 1.5em;
+            text-align: right;
+            font-weight: 900;
+        }
+        .dashboard-price p{
+            float: left;
+            font-size: 1.2em;
+            font-weight: 500;
+            min-width: 7em;
+            margin: -0.2em 0 .5em 0;
+            text-align: right;
+            margin-right: 45px;
+        }
+        .dashboard-price-total{
+            font-size: 2em;
+            font-weight: 100;
+            text-align: right;
+            padding-bottom: 0 !important;
+            margin-bottom: 0.3em;
+            margin-top: 0em;
+            padding-top: 0em;  
+        }
+        .dashboard-price{
+            font-weight: 100;
+            float: right;
+        }
+    }
+    .clear{
+        float: none;
+        clear: both;
+    }
+}

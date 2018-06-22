@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-/**
- * A simple settings/config class for storing key/value pairs with persistence.
- */
 @Injectable()
 export class Settings {
+
   private SETTINGS_KEY: string = '_settings';
-
   settings: any;
-
   _defaults: any;
   _readyPromise: Promise<any>;
 
-  constructor(public storage: Storage, defaults: any) {
+  /**
+   * 
+   * @param storage 
+   * @param events 
+   * @param defaults 
+   */
+  constructor( public storage : Storage, defaults: any) {
     this._defaults = defaults;
   }
 
+  /**
+   * 
+   */
   load() {
     return this.storage.get(this.SETTINGS_KEY).then((value) => {
       if (value) {
@@ -30,6 +35,10 @@ export class Settings {
     });
   }
 
+  /**
+   * 
+   * @param defaults 
+   */
   _mergeDefaults(defaults: any) {
     for (let k in defaults) {
       if (!(k in this.settings)) {
@@ -39,6 +48,10 @@ export class Settings {
     return this.setAll(this.settings);
   }
 
+  /**
+   * 
+   * @param settings 
+   */
   merge(settings: any) {
     for (let k in settings) {
       this.settings[k] = settings[k];
@@ -46,15 +59,38 @@ export class Settings {
     return this.save();
   }
 
+  /**
+   * 
+   * @param key 
+   * @param value 
+   */
   setValue(key: string, value: any) {
     this.settings[key] = value;
     return this.storage.set(this.SETTINGS_KEY, this.settings);
   }
 
+  /**
+   * 
+   * @param key 
+   * @param value 
+   */
+  setValueTest(key: string, value: any) {
+    this.settings[key] = value;
+    return this.storage.set(key, key);
+  }
+
+  /**
+   * 
+   * @param value 
+   */
   setAll(value: any) {
     return this.storage.set(this.SETTINGS_KEY, value);
   }
 
+  /**
+   * 
+   * @param key 
+   */
   getValue(key: string) {
     return this.storage.get(this.SETTINGS_KEY)
       .then(settings => {
@@ -62,10 +98,16 @@ export class Settings {
       });
   }
 
+  /**
+   * 
+   */
   save() {
     return this.setAll(this.settings);
   }
 
+  /**
+   * 
+   */
   get allSettings() {
     return this.settings;
   }
