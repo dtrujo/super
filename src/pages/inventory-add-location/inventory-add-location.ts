@@ -48,12 +48,13 @@ export class InventoryAddLocationPage {
 
     // scan
     this.barcodeScanner.scan( this.options ).then(( barcodeData ) => {
-      console.log(barcodeData);
+      this.location.code = barcodeData.text;
     }, (err) => {
       console.log("Error occured : " + err);
     });
 
   }
+  
   /**
    * 
    */

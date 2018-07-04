@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, Events, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { Warehouses } from '../../providers/providers';
@@ -21,17 +21,24 @@ export class WarehouseListPage {
   constructor( 
     public navCtrl: NavController,
     public storage: Storage,
+    public loadingCtrl: LoadingController,
     public user: User,
     public events: Events,
     public actionSheetCtrl: ActionSheetController,
     public warehousesServ: Warehouses, 
     public navParams: NavParams ) {
 
+    let loading = this.loadingCtrl.create({
+      content: 'Cargando...'
+    });
+
+    loading.present();
+
     // get all warehouses
     this.warehousesServ.getWarehouses( ).subscribe( data => {  
       this.warehouses = data;
+      loading.dismiss();
     });
-
   }
 
   /**

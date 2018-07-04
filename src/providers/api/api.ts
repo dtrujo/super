@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -70,7 +70,14 @@ export class Api {
    * @param reqOpts 
    */
   post(endpoint: string, body: any, reqOpts?: any) {
-    return this.http.post(this.url + '/' + endpoint, body, reqOpts);
+
+    var headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Origin' , '*');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    headers.append('Accept','application/json');
+    headers.append('content-type','application/json');
+
+    return this.http.post(this.url + '/' + endpoint, body, {headers:headers}); 
   }
 
   /**

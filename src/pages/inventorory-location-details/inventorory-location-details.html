@@ -10,6 +10,7 @@
       <div class="inventory-detail">  
         <h2>{{location.code}}</h2>
         <h5>{{inventory.code}}</h5>
+        <h5 class='article-header'>{{location.count}} artículos</h5>
       </div>
   
     </div>
@@ -21,7 +22,7 @@
     <div class='container-empty' *ngIf="location.articles.length<1">
   
       <div class='empty-article'>
-        <img src="assets/img/ubication-white.png" />
+        <img src="assets/img/box-white.png" />
         <ion-label>Not Article</ion-label>
       </div>
     
@@ -38,10 +39,10 @@
           <div class='left-info'>
             <h4 [ngStyle]="{'color': (article.new_units!=article.old_units) ? 'red':'black'}">{{article.article_code}}</h4>
             <p>{{article.article_name}}</p> 
-          </div> 
+          </div>
     
           <div class='right-info'>
-            <h5>{{article.new_units}} uds</h5>
+            <h5>{{article.old_units}}/{{article.new_units}} uds</h5>
             <p>{{article.ubication}}</p>
           </div>
           

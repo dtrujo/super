@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ModalController, ViewController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Articles } from '../../providers/providers';
 
@@ -12,7 +12,6 @@ export class InventoryAddArticlePage {
   id: any;
   error: boolean;
   options: BarcodeScannerOptions;
-  warehouse: any;
   inventory: any;
   location: any;
 
@@ -27,8 +26,10 @@ export class InventoryAddArticlePage {
    * @param navParams 
    */
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
+    public alertCtrl:AlertController,
     public articlesServ: Articles,
+    public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
     public barcodeScanner: BarcodeScanner,
     public navParams: NavParams) {
@@ -53,17 +54,60 @@ export class InventoryAddArticlePage {
 
     loader.present();
 
-    // search article by code
     this.articlesServ.getArticleByCode( this.article.code ).subscribe( data => {
       loader.dismiss();
 
       if (!data[0]){
         this.error = true;
       } else {
-        this.navCtrl.push('InventoryAmountPage' , { article : data[0] , inventory : this.inventory , location: this.location });
-      }
 
-    });
+        this.articlesServ.getArticleWarehouses(
+          data[0].article_id ).subscribe( warehouses => {
+            
+          let w: any = [];
+          w = warehouses;
+    
+          // get ubication for this article in the curren warehouse
+          let warehouse = w.filter( x => x.id == this.inventory.warehouse.id)[0];
+      
+          // check if the some ubication
+          if (warehouse.ubication === this.location.code ) {
+              
+            // control if the article is repeated in this ubication
+            let article = this.location.articles.find( 
+              x => x.article_id == data[0].article_id 
+            );
+
+            if ( article ) {
+
+              this.navCtrl.push('InventoryAddMoreArticlePage' , { 
+                article : article, 
+                inventory : this.inventory, 
+                location: this.location
+              });
+
+            } else {
+
+              this.navCtrl.push('InventoryAmountPage' , { 
+                article : data[0], 
+                inventory : this.inventory, 
+                location: this.location
+              });
+            }
+
+          } else {
+
+            this.navCtrl.push('InventoryRelocateArticlePage' , { 
+              article : data[0], 
+              inventory : this.inventory, 
+              location: this.location
+            });
+
+          }
+        }); 
+
+      }
+    }); 
   }
 
   /**
@@ -83,7 +127,6 @@ export class InventoryAddArticlePage {
 
     // scan
     this.barcodeScanner.scan( this.options ).then(( barcodeData ) => {
-      console.log(barcodeData);
       this.article.code = barcodeData.text;
     }, (err) => {
       console.log("Error occured : " + err);

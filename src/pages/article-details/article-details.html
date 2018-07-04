@@ -21,18 +21,13 @@
   </div>
 
   <div class="article-prices">
-    <img src="assets/img/price.png" />
     <h4>Precios</h4>
     <ion-list class="list-prices">
       <ion-item class="item-prices" *ngFor="let price of prices">
 
         <div class='type'>
-            <div class='type-code'>{{ price.price_code }}</div>
-            <div class='type-type'>{{ price.price_info }}</div>
-        </div>
-        <div class='tax'>
-          <div class='tax-code'>{{ price.tax_code }}</div>
-          <div class='tax-type'>{{ price.taxtype_info }} </div>
+            <div class='type-code'>{{ price.price_code }} &nbsp; {{ price.price_info }}</div>
+            <div class='type-type'>{{ price.tax_code }}% {{ price.taxtype_info }}</div>
         </div>
         
         <div class='price'>            
@@ -45,18 +40,16 @@
   </div>
 
   <div class="article-warehouse">
-
-      <img src="assets/img/warehouse.png" />
       <h4>Almacenes</h4>
-
       <ion-list>
 
         <ion-card *ngFor="let warehouse of warehouses" (click)="presentActionSheet(warehouse)" class='{{warehouse.icon}}'>
           <ion-card-header>
             <div class='warehouse'>
-              <div class='warehouse-code'>{{ warehouse.code }}</div>
-              <div class='warehouse-name'>{{ warehouse.name }}</div>
-              <div class='warehouse-ubications'>{{ warehouse.ubication }}</div>
+              <div class='warehouse-code'>{{ warehouse.name }}</div>
+              <div class='warehouse-ubications'>{{ warehouse.ubication }} 
+                <span *ngIf="warehouse.ubication==''">-</span>
+              </div> 
             </div>
             <div class='uds'>
               <div class='uds-value'>{{ warehouse.units }} <span>Uds</span></div>

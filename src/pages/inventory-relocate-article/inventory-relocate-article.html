@@ -1,0 +1,47 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Relocate</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)='changeLocation()'>
+        <ion-icon name="swap"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="main-container">
+
+    <div class='relocate'>
+      <ion-label class="relocate-first" stacked>{{from}}</ion-label>
+      <ion-img src="assets/img/ubication-white.png"></ion-img>
+      <ion-label class="relocate-last" stacked>{{to}}</ion-label>
+    </div>
+
+    <form [formGroup]="articleForm" (ngSubmit)="relocate()">
+    
+      <ion-item class="input-ubication">
+        <ion-label stacked>Cantidad total</ion-label>
+        <ion-input
+          type="text" name="units"
+          formControlName="units">  
+        </ion-input>
+      </ion-item>
+      <div>
+        <button
+          ion-button type="submit" color="light" 
+          block round outline [disabled]="!articleForm.valid || inventory.isSent">Reubicar</button>
+      </div>
+
+  </form>
+
+  </div>
+
+</ion-content>
+
+

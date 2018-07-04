@@ -105,7 +105,10 @@ export class InventoryAmountPage {
 
     // update the inventory in the storage;
     this.inventoriesServ.update( this.inventory).then( value => {
-      this.navCtrl.popTo( this.navCtrl.getByIndex(4));
+      
+      // control jumping
+      let jump = this.navCtrl.length() == 8 ? 5 : 4; 
+      this.navCtrl.popTo( this.navCtrl.getByIndex(jump));
     });
   }
 

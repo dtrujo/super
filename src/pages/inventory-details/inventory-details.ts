@@ -1,6 +1,6 @@
 import { Warehouses } from './../../providers/warehouses/warehouses';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 
 import { Inventories } from '../../providers/providers';
 
@@ -13,7 +13,9 @@ export class InventoryDetailsPage {
   articles: any;
   article: any;
   inventory: any;
+  canUpload: boolean = true;
   warehouse: any;
+  incidences: number = 0;
 
   /**
    * 
@@ -22,13 +24,27 @@ export class InventoryDetailsPage {
     public navCtrl: NavController,
     public alertCtrl: AlertController,
     private toastCtrl: ToastController,
+    public loadingCtrl: LoadingController,
     public inventoriesServ: Inventories,
     public navParams: NavParams ) {
 
     // get inventory using params
     this.inventory = navParams.get('inventory');
+  }
 
-    console.log(this.inventory);
+  /**
+   * 
+   * @param location 
+   */
+  checkIncidences(location: any){ 
+
+    let incidences = 0;
+    location.articles.forEach(article => {
+      if (article.old_units != article.new_units)
+        incidences++;
+    });
+
+    return incidences;
   }
 
   /**
@@ -63,6 +79,9 @@ export class InventoryDetailsPage {
 
             // update inventory
             this.inventoriesServ.update(this.inventory);
+
+            // check if can upload inventory
+            this.checkCanUpload();
           }
         }
       ]
@@ -89,6 +108,15 @@ export class InventoryDetailsPage {
         {
           text: 'Upload',
           handler: () => {
+
+            // create loading
+            let loading = this.loadingCtrl.create({
+              content: 'Please wait...'
+            });
+          
+            // show loading
+            loading.present();
+
             var d = new Date();
             
             let year =   d.getFullYear().toString();
@@ -118,6 +146,8 @@ export class InventoryDetailsPage {
               } else {
                 message = data['error'];
               }
+
+              loading.dismiss();
         
               // present totast
               this.presentToast( message );
@@ -158,21 +188,37 @@ export class InventoryDetailsPage {
    * 
    * @param location 
    */
-  locationsDetails(location: any){
+  locationsDetails(location: any) {
     this.navCtrl.push('InventororyLocationDetailsPage' , { inventory : this.inventory , location : location });
   }
  
   /**
    * 
    */
-  goToAddLocation(){    
+  goToAddLocation() {    
     this.navCtrl.push('InventoryAddLocationPage' , { inventory: this.inventory });
   }  
+
+ /**
+  * 
+  */
+  ionViewDidEnter(){
+    this.checkCanUpload();
+  }
 
   /**
    * 
    */
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InventoryDetailsPage');
+  checkCanUpload(){
+    if (this.inventory.isSent || this.inventory.locations.length < 1){
+      this.canUpload = true;
+    } else {
+      if (!this.inventory.isSent && this.inventory.locations.length > 0){
+        for (var location of this.inventory.locations) 
+          this.canUpload = location.articles.length > 0 ? false : true;
+      } 
+    }
   }
+
 }
+ 

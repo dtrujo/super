@@ -1,20 +1,15 @@
-page-inventory-amount {
+page-inventory-relocate-article {
     .scroll-content{
         padding: 0 !important;
     }
-    .input-ubication{
-        float: left;
-        opacity: .4;
-        margin-right: 5px;
-    }
     .button{
         padding: 1.8em 1em;
-        margin-top: 2em;
+        margin-top: 3em;
         border-width: 2px;
         border-radius: 10px;
     }
     .main-container{
-        margin: 0em 2em 0em 2em;
+        margin: 7em 3em 0em 3em;
     }
     .error-login{
         margin-top: 3em;
@@ -23,7 +18,7 @@ page-inventory-amount {
         p{
             text-align: center;
         }
-        img{
+        img {
             height: 60px;
         }
     }
@@ -35,10 +30,6 @@ page-inventory-amount {
     ion-label{
         font-size: 1.4rem !important;
     }
-    .item-input-disabled .item-inner{
-        border-bottom-color: #dedede !important;
-        box-shadow: none !important;
-    }
     ion-input{
         color: white;
         font-size: 2.5em;
@@ -48,10 +39,12 @@ page-inventory-amount {
             margin-top: 15px;
         }
     }
-    ion-img{              
-        background: transparent;
-        margin: 0 auto 0 auto;
-        display: block;
+    ion-icon{              
+        font-size: 6.2em;
+        width: 100%;
+        margin: 0 auto;
+        color: white;
+        text-align: center;
     }
     .ubication{
         margin: 0 auto 0 auto;
@@ -64,11 +57,40 @@ page-inventory-amount {
             margin-top: .2em;
         }
         ion-label{
-            color: #676767;
+            color: white;
+            opacity: .6;
+        }
+    }
+    .relocate{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        .relocate-first {
+            align-self: center;
+            margin-top: 0px;
+            text-align: center;
+        }
+        .relocate-last {
+            align-self: center;
+            margin-top: 0px;
+            text-align: center;
+        }
+        ion-label{
+            float:left;
+            color: white;
+            font-size: 4rem !important;
+            font-weight: 900 !important;
+        }
+        ion-img{   
+            align-self: center;           
+            background: transparent;
+            display: block;
+            float:left;
+            min-width: 50px;
+            min-height: 50px;
         }
     }
     .item{
-        width: 47%;
         padding: 0;
         background: none;
     }
@@ -82,16 +104,16 @@ page-inventory-amount {
                 color:white;
             }
             .toolbar-background{
-                background-color: #2b2b2b;
+                background-color: #FE2E2E;
             }
         }
     }
     .content{
-        background-color:#2b2b2b
+        background-color:#FE2E2E
     }
     ion-content{
         .article-header{
-            background-color: #2b2b2b;
+            background-color: #FE2E2E;
             padding: 3em 2em 3em 2em;
             color:white;
             h2{
@@ -102,7 +124,8 @@ page-inventory-amount {
             }
             h5{
                 margin-top:0;
-                color:gray;
+                color:white;
+                opacity: .6;
                 font-size: 2rem;
                 margin-bottom:0;
                 font-weight: 100;
@@ -148,8 +171,10 @@ page-inventory-amount {
                 float: left;
                 font-weight: 900;
                 padding: 1em 0;
-                color: #807e7e;
+                color: white;
             }
         }
     }
 }
+
+

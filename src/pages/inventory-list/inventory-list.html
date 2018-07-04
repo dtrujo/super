@@ -16,16 +16,16 @@
 </ion-header>
 
 <ion-content padding>
-  
+
   <div class='container-empty' *ngIf="inventories.length<1">
-    
+  
     <div class='empty-article'>
       <img src="assets/img/box-white.png" />
       <ion-label>Not inventory</ion-label>
     </div>
 
   </div>
-
+  
   <ion-list>
 
     <ion-item-sliding *ngFor="let inventory of inventories" (click)='inventoryDetails(inventory)'>
@@ -41,7 +41,7 @@
         </div> 
   
         <div class='right-info'>
-          <h5 [ngStyle]="{'color': (inventory.incidence!=0) ? 'red':'black'}">{{inventory.count}}</h5>
+          <h5>{{inventory.count}}</h5>
           <p>articles</p>
         </div>
         

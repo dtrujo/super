@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { Clients } from '../../providers/providers';
 
@@ -22,15 +22,22 @@ export class ClientsPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public loadingCtrl: LoadingController,
     public clientsServ: Clients) {
        
     this.clients = [];
     let params = {"limit": this.limit , "offset": this.offset};
 
+    let loading = this.loadingCtrl.create({
+      content: 'Cargando...'
+    });
+
+    loading.present();
+
     // get all client using limit and offset
-    this.clientsServ.getClients( params ).subscribe( data => {   
-      console.log(data);    
+    this.clientsServ.getClients( params ).subscribe( data => {     
       this.clients = data;
+      loading.dismiss();
     });
   }
 

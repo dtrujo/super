@@ -6,7 +6,7 @@ page-article-details {
         opacity: .5;
     }
     ion-label{
-        margin: 23px 10px !important;
+        margin: 20px 10px !important;
     }
     ion-header{
         background: transparent;
@@ -59,7 +59,7 @@ page-article-details {
             }
             h4{
                 font-size: 1.6em;
-                font-weight: 500;
+                font-weight: 900;
                 margin-top: 0.5em;
                 margin-bottom: 1.2em;
             } 
@@ -81,13 +81,15 @@ page-article-details {
                     float: left;
                     width: 35%;
                     .type-code{
-                        font-weight: 900;
-                        font-size: 1.3em;
+                        font-weight: 500;
+                        font-size: 1em;
                     }
                     .type-type{
                         color: gray;
-                        font-size: .9em;
+                        font-size: .8em;
+                        margin-top: 5px;
                         font-weight: 100;
+                        margin-left: 1px;
                     }
                 }
                 .tax{
@@ -105,15 +107,16 @@ page-article-details {
                 .price{
                     float: right;
                     .price-price{
-                        font-size: 1.3em;
+                        font-size: 1em;
                         font-weight: 300;
                         text-align: right;
                     }
                     .price-dto{
                         color: gray;
-                        font-size: .9em;
+                        font-size: .8em;
                         font-weight: 100;
                         text-align: right;
+                        margin-top: 3px;
                     }
                 }
             }
@@ -129,7 +132,7 @@ page-article-details {
             }
             h4{
                 font-size: 1.6em;
-                font-weight: 500;
+                font-weight: 900;
                 margin-top: 0.5em;
                 margin-bottom: 1.3em;
             } 
@@ -150,25 +153,26 @@ page-article-details {
                 .warehouse{
                     float: left;
                     .warehouse-code{
-                        font-size: 1.6em;
-                        font-weight: 900;
+                        font-size: 1.2em;
+                        font-weight: 500;
                     }
                     .warehouse-name{
                         color: gray;
                         margin-top:2px;
-                        font-size: 1.1em;
+                        font-size: 1em;
                         font-weight: 100
                     }
                     .warehouse-ubications{
-                        margin-top:10px;
-                        font-size:1.2em;
+                        margin-top: 5px;
+                        font-size: 1em;
+                        margin-left: 1px;
                         font-weight: 100;
                     }
                 }
                 .uds{
                     float: right;
                     .uds-value{
-                        font-size: 1.5em;
+                        font-size: 1.2em;
                         font-weight: 100;
                         span{
                             font-size: .9em

@@ -13,7 +13,7 @@ import { Inventories } from '../../providers/providers';
 export class InventoryListPage {
   inventories:any;
   warehouse:any;
-  user: any;
+  user:any;
 
   /**
    * 
@@ -105,7 +105,6 @@ export class InventoryListPage {
 
             // remove to the storage
             this.inventoriesServ.remove(inventory.id);
-
           }
         }
       ]

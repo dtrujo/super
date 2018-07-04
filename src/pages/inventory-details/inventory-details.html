@@ -4,7 +4,7 @@
       <ion-title>Inventory</ion-title>
 
       <ion-buttons end>
-        <button ion-button icon-only (click)='uploadInventory()' [disabled]="inventory.isSent">
+        <button ion-button icon-only (click)='uploadInventory()' [disabled]="canUpload">
           <ion-icon name="cloud-upload"></ion-icon>
         </button>
       </ion-buttons>
@@ -35,7 +35,7 @@
 
     <ion-list>
 
-      <ion-item-sliding 
+      <ion-item-sliding
         *ngFor="let location of inventory.locations" 
         (click)='locationsDetails(location)'>
   
@@ -43,12 +43,11 @@
   
           <div class='left-info'>
             <h4>{{location.code}}</h4>
-            <!--<p>{{article.article_name}}</p> -->
-          </div> 
+          </div>
     
           <div class='right-info'>
             <h5>{{location.count}} articles</h5>
-            <!--<p>{{article.ubication}}</p>-->
+            <p [ngStyle]="{'color': (checkIncidences(location)>0) ? 'red':'gray'}" >{{checkIncidences(location)}} incidences</p>
           </div>
           
         </ion-item>

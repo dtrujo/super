@@ -1,0 +1,45 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Repeated</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="main-container">
+
+    <ion-icon name="alert"></ion-icon>
+    <form [formGroup]="articleForm" (ngSubmit)="addMoreUnitsArticle()">
+    
+      <ion-item class="input-ubication">
+        <ion-label stacked>Hay</ion-label>
+        <ion-input
+          type="text" name="old_units" disabled="true" 
+          formControlName="old_units" value="{{article.new_units}}">
+        </ion-input>
+      </ion-item>
+
+      <div class='dotted'>+</div>
+
+      <ion-item>        
+        <ion-label stacked>Añade</ion-label>
+        <ion-input #input
+          type="text" name="new_units" [disabled]="inventory.isSent"
+          formControlName="new_units"></ion-input>
+      </ion-item>
+
+      <div>
+        <button
+          ion-button type="submit" color="light" 
+          block round outline [disabled]="!articleForm.valid || inventory.isSent">Añadir</button>
+      </div>
+
+  </form>
+
+  </div>
+
+</ion-content>
+
+

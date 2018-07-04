@@ -45,7 +45,7 @@ export class ArticleRelocationPage {
 
     // is valid the article form
     this.articleForm = this.formBuilder.group({
-      old_location: ['', Validators.required],
+      old_location: [''],
       new_location:['', Validators.required]
     });
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Articles } from '../../providers/providers';
 
 @IonicPage()
@@ -21,14 +21,22 @@ export class ArticleListPage {
   constructor( 
     public navCtrl: NavController, 
     public navParams: NavParams, 
+    public loadingCtrl: LoadingController,
     public articlesServ: Articles  ) {
       
     this.articles = [];
     let params = {"limit": this.limit , "offset": this.offset};
 
+    let loading = this.loadingCtrl.create({
+      content: 'Cargando...'
+    });
+
+    loading.present();
+
     // get all articles using limit and offset
     this.articlesServ.getArticles( params ).subscribe( data => {  
       this.articles = data;
+      loading.dismiss();
     });
 
   }

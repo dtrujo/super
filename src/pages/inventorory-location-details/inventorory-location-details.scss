@@ -15,7 +15,7 @@ page-inventorory-location-details{
             }
             ion-label{
                 color: lightgray;
-                margin: 20px 8px 20px 0px;
+                margin: 10px 8px 15px 0px;
                 width: 100% !important;
                 justify-content: center;
                 text-align: center;
@@ -50,8 +50,11 @@ page-inventorory-location-details{
                 margin-bottom:0;
             }
             .inventory-detail{
-                margin-top: 1em;
-                margin-bottom: 1em;
+                margin-top: 0em;
+                margin-bottom: 0em;
+                .article-header{
+                    margin-top:8px !important;
+                }
                 h5{
                     font-weight: 100;
                 }
@@ -62,7 +65,7 @@ page-inventorory-location-details{
         background-color: rgb(39, 39, 39) !important;
     }
     .label{
-        margin: 20px 8px 20px 25px;
+        margin: 15px 8px 15px 25px;
         display: flex;
     }
     .sliding-button{
@@ -79,7 +82,7 @@ page-inventorory-location-details{
         font-weight: 100;
     }
     .item{
-        min-height: 5em;
+        min-height: 6em;
         padding-left: 0px;
         .item-inner{
             padding: 0 !important;
@@ -97,13 +100,14 @@ page-inventorory-location-details{
         text-align: right;
         align-self: center;
         position: absolute;
+        top: 1.2em;
         right: 2rem;
         h5{
             margin-top:0.3em !important;
             font-size: 1.1em !important;
             font-weight: 100 !important;
         }
-        p{
+        p{ 
             font-weight: 400;
             color:black;
         }
